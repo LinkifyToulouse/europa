@@ -16,3 +16,36 @@ Les fichiers du nouveau projet Europa seront créés dans le dossier `my-europa-
 
 #### Installation sans NPM
 Il est possible d'installer Linkify Europa sans NPM. Pour cela, télécharger __tous__ les dossiers et fichiers de ce git dans votre dossier de projet.
+
+## Structure du framework
+Par défaut, Linkify Europa est constitué de plusieurs sous-dossiers :
+```
+my-europa-project
+|
+|__config
+|__app
+|__controller
+|__public
+|__extra
+|__template
+```
+Ces sous-dossiers ne __doivent pas être supprimés__.
+
+#### config
+Le dossier `config` contient les fichiers de configuration du projet.
+Il s'agit de fichiers au format JSON.
+
+#### app
+Le dossier `app` contient le script PHP du Kernel du framework. Le Kernel gère le traitement des requêtes et réponses envoyés au client.
+
+#### controller
+`controller` contient tous les contrôleurs et les dépendances utilisées pour le projet.
+
+#### public
+Chaque requête doit être envoyée au dossier `public` : le nom de domaine principal de votre site doit pointer vers ce dossier. La page `index.php` et le fichier `.htaccess` ne __doivent pas être supprimés__. Il est possible de créer des sous-dossiers pour les assets et contenus. Les noms autorisés pour ces sous-dossiers sont `assets`, `files`, `content` et `europa`.
+
+#### extra
+Le dossier `extra` contient toutes les fonctions additionnelles du framework.
+
+#### template
+`template` contient les templates des vues.
