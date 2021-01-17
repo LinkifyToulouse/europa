@@ -1,0 +1,29 @@
+{
+	"config": {
+		"requirements": [
+			{
+				"name": "Slugify",
+				"path": "Slugify.php"
+			}, {
+				"name": "Linkify",
+				"path": "Linkify.php"
+			}, {
+				"name": "HTMLmetaTags",
+				"path": "HTMLmetaTags.php"
+			}, {
+				"name": "FormChecker",
+				"path": "FormChecker.php"
+			}, {
+				"name": "SendMail",
+				"path": "SendMail.php"
+			}, {
+				"name": "AxSQL",
+				"path": "AxSQL.php"
+			}
+		],
+		"dependencies": [],
+		"defaultPath": "http://localhost/",
+		"version": "1.0.0",
+		"publishDate": "17/01/2021"
+	}
+}
