@@ -22,7 +22,7 @@ namespace Extra {
 			}
 		}
 		
-		public static function request($table, $action, $values = null, $conditions = null) {
+		public static function request($table, $action, $values = null, $conditions = null, string $addParameters = '') {
 			if ($action == 'SELECT') {
 				$sel = '';
 				if (\gettype($values) == 'array') {
@@ -42,11 +42,11 @@ namespace Extra {
 						$execcond[$k] = $v;
 					}
 					$cond = \substr($cond, 0, \strlen($cond) - 5);
-					$req = self::$pdo->prepare("SELECT $sel FROM $table $cond");
+					$req = self::$pdo->prepare("SELECT $sel FROM $table $cond $addParameters");
 					$req->execute($execcond);
 					return $req->fetch();
 				} else {
-					$req = self::$pdo->query("SELECT $sel FROM $table");
+					$req = self::$pdo->query("SELECT $sel FROM $table $addParameters");
 					return $req->fetch();
 				}
 			} else if ($action == 'UPDATE') {
@@ -69,10 +69,10 @@ namespace Extra {
 						$cond = \substr($cond, 0, \strlen($cond) - 5);
 						$val = \array_merge($val, $execcond);
 						
-						$req = self::$pdo->prepare("UPDATE $table SET $var WHERE $cond");
+						$req = self::$pdo->prepare("UPDATE $table SET $var WHERE $cond $addParameters");
 						return $req->execute($val);
 					} else {
-						$req = self::$pdo->prepare("UPDATE $table SET $var");
+						$req = self::$pdo->prepare("UPDATE $table SET $var $addParameters");
 						return $req->execute($val);
 					}
 				}
@@ -87,7 +87,7 @@ namespace Extra {
 				}
 				$var = \substr($var, 0, \strlen($var) - 2);
 				$val = \substr($val, 0, \strlen($val) - 2);
-				$req = self::$pdo->prepare("INSERT INTO $table($val) VALUES($var)");
+				$req = self::$pdo->prepare("INSERT INTO $table($val) VALUES($var) $addParameters");
 				return $req->execute($execCond);
 			} else if ($action == 'DELETE') {
 				$var = '';
@@ -97,7 +97,7 @@ namespace Extra {
 					$execCond[$k] = $v;
 				}
 				$var = \substr($var, 0, \strlen($var) - 5);
-				$req = self::$pdo->prepare("DELETE FROM $table WHERE $var");
+				$req = self::$pdo->prepare("DELETE FROM $table WHERE $var $addParameters");
 				return $req->execute($execCond);
 			}
 		}
