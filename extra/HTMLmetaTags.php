@@ -75,6 +75,14 @@ namespace Extra {
 			}
 		}
 		
+		public static function get($keyword) {
+			if (self::isControllerSet()) {
+				return self::$CONTROLLER::$TEMPLATE_PARAMETERS[$keyword];
+			} else {
+				return false;
+			}
+		}
+		
 		public static function isControllerSet($autowire = true):bool {
 			if (self::$CONTROLLER !== null) {
 				return true;
