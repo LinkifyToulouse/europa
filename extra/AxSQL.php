@@ -44,10 +44,20 @@ namespace Extra {
 					$cond = \substr($cond, 0, \strlen($cond) - 5);
 					$req = self::$pdo->prepare("SELECT $sel FROM $table $cond $addParameters");
 					$req->execute($execcond);
-					return $req->fetch();
+					$RET = [];
+					while ($resp = $req->fetch()) {
+						$RET[] = $resp;
+					}
+					$req->closeCursor(); 
+					return $RET;
 				} else {
 					$req = self::$pdo->query("SELECT $sel FROM $table $addParameters");
-					return $req->fetch();
+					$RET = [];
+					while ($resp = $req->fetch()) {
+						$RET[] = $resp;
+					}
+					$req->closeCursor(); 
+					return $RET;
 				}
 			} else if ($action == 'UPDATE') {
 				if ($values != null) {
