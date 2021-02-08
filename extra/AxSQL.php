@@ -19,6 +19,7 @@ namespace Extra {
 					$dsn = "mysql:dbname=".$db['dbname'].";host=".$db['host'];
 				}
 				self::$pdo = new \PDO($dsn, $db['username'], $db['password']);
+				self::$pdo->query('SET NAMES "utf8";');
 			}
 		}
 		
