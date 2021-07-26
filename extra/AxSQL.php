@@ -122,7 +122,7 @@ namespace Extra {
 		}
 		
 		public static function execute($elements) {
-			return self::$pdo->execute($elements);
+			return self::$pdo->execute($elements, PDO::FETCH_ASSOC);
 		}
 		
 	}
