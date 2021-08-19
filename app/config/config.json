@@ -1,0 +1,30 @@
+{
+	"config": {
+		"europaVersion": "2.0.0",
+		"publishDate": "19/08/2021",
+		"domains": {
+			"main": {
+				"domain": "localhost",
+				"protocol": "http",
+				"path": "public/"
+			}
+		},
+		"redirectRules": [
+			{
+				"rule": "/content/(.*)"
+			}
+		],
+		"env": "dev",
+		"database": {
+			"host": "localhost",
+			"port": false,
+			"username": "root",
+			"password": "",
+			"database": "emerga",
+			"autoLoad": true
+		},
+		"namespaces": {
+			"\\Europa\\CustomNamespace": "app/core/"
+		}
+	}
+}
