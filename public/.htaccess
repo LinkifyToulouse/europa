@@ -1,8 +1,0 @@
-Options +FollowSymlinks
-RewriteEngine on
-
-RewriteCond %{REQUEST_URI} !index.php(.*)
-RewriteCond %{REQUEST_URI} !/content/(.*)
-RewriteCond %{REQUEST_URI} !/assets/(.*)
-RewriteCond %{REQUEST_URI} !/europa/(.*)
-RewriteRule ([\w\d\.\-\#\?\:\!\=\_\/\@]*) index.php?_req=$1
