@@ -77,7 +77,8 @@ Plusieurs méthodes publiques et statiques sont mises en place pour l'accès à 
 	* 0 : un booléen indiquant si l'opération s'est convenablement déroulée,
 	* 1 : un objet \PDOStatement,
 	* 2 : un array contenant les informations d'erreur MySQL (1 => statut, 2 => code, 3 => message d'erreur),
-	* 3 : si autoFetch vaut true, contient un array avec les lignes retournées par MySQL.
+	* 3 : l'id du dernier élément inséré,
+	* 4 : si autoFetch vaut true, contient un array avec les lignes retournées par MySQL.
 * fetchSQL() prend en paramètre l'array renvoyé par init() et va récupérer les résultats dans la base de données. Si $autoFetch vaut true dans la méthode SQL(), il n'est pas nécessaire d'appeler cette méthode.
 
 DatabaseManager inclut également plusieurs méthodes statiques servant d'utilitaires :
