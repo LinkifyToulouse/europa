@@ -1,5 +1,5 @@
 # Espaces de nom et classes principales dans Europa
-
+```
 \Europa													(Namespace global du framework)
 |
 |___\Core												(Namespace du cœur du framework)
@@ -25,3 +25,4 @@
  	|___\Components										(Namespace des components dans controller/components/components)
 	|
 	|___\ComponentsManager								(Namespace du ComponentManager dans controller/components/ComponentsManager)
+```
