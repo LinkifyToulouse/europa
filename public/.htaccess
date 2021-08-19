@@ -1,0 +1,10 @@
+Options +FollowSymlinks
+
+RewriteEngine on
+
+
+RewriteCond %{REQUEST_URI} !europa.php(.*)
+
+RewriteCond %{REQUEST_URI} !/content/(.*)
+
+RewriteRule ([\w\d\.\-\#\?\:\!\=\_\/\@]*) europa.php?_req=$1
