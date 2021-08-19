@@ -1,0 +1,12 @@
+{
+	"routes": {
+		"main": [
+			{
+				"name": "EuropaAccueil",
+				"controller": "AccueilController",
+				"function": "accueil",
+				"scheme": ""
+			}
+		]
+	}
+}
