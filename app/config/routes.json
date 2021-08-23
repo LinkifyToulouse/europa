@@ -8,5 +8,10 @@
 				"scheme": ""
 			}
 		]
+	},
+	"alias": {
+		"main": {
+			"main": ""
+		}
 	}
 }
