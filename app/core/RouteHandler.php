@@ -8,11 +8,13 @@ class RouteHandler {
 	public static $URLattributes = array();
 	public static $currentRoute = null;
 	public static $routes = null;
+	public static $alias = null;
 	
 	public static function loadRoutes() {
 		$tmp_routes = file_get_contents(EUROPA_DEFAULT_PATH.'app/config/routes.json');
 		$tmp_routes = json_decode($tmp_routes, TRUE);
 		self::$routes = $tmp_routes['routes'];
+		self::$alias = $tmp_routes['alias'];
 		$routes = $tmp_routes['routes'];
 		
 		if (isset($routes[RequestHandler::$currentDomain])) {
@@ -27,6 +29,14 @@ class RouteHandler {
 	}
 	
 	private static function handleRoutes() {
+		if (isset(self::$alias[RequestHandler::$currentDomain])) {
+			
+			foreach (self::$alias[RequestHandler::$currentDomain] as $an=>$av) {
+				if (preg_match("#^$an\$#", RequestHandler::$request)) {
+					ResponseHandler::redirect(ResponseHandler::parsePath($av));
+				}
+			}
+		}
 		foreach(self::$currentDomainRoutes as $k=>$route) {
 					 
 			if (!isset(self::$currentRoute)) {
@@ -51,6 +61,7 @@ class RouteHandler {
 						}
 						self::$URLattributes = $URLattributes;
 					}
+					break;
 				}
 			}
 		}
@@ -58,8 +69,10 @@ class RouteHandler {
 		if (!isset(self::$currentRoute)) {
 			$controller = new \Europa\Controller\DefaultControllers\ExceptionController();
 			$controller->status404();
+			return false;
 		} else {
 			self::loadController();
+			return true;
 		}
 		
 		//var_dump(self::$currentRoute);
