@@ -68,9 +68,17 @@ ita sint quamquam doctrina do ex iis quem tamen magna.</p>";
 	}
 	
 	public function get($val) {
-		return $this->attributes[$val];
+		if (isset($this->attributes[$val])) {
+			return $this->attributes[$val];
+		} else {
+			return null;
+		}
 	}
 	public function getURLParameter($val) {
-		return $this->URLattributes[$val];
+		if (isset($this->URLattributes[$val])) {
+			return $this->URLattributes[$val];
+		} else {
+			return null;
+		}
 	}
 }
