@@ -41,16 +41,13 @@ class VueManager {
 		}
 	}
 	
-	public function include($vue, array $fileParameters) {
-		if (!isset($fileParameters)) {
-			$fileParameters = array(
+	public function include($vue, array $fileParameters = array(
 				"TEMPLATE_EXTENSION"=>"php"
-			);
-		}
-		chdir("../");
+			)) {
+		//chdir("../");
 			include("vues/templates/$vue.".$fileParameters["TEMPLATE_EXTENSION"]);
 		
-		chdir("public");
+		//chdir("public");
 	}
 	
 	public function loremIpsum(string $type = 'P', $length = 1) {
