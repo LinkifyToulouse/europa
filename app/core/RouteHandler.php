@@ -16,7 +16,6 @@ class RouteHandler {
 		self::$routes = $tmp_routes['routes'];
 		self::$alias = $tmp_routes['alias'];
 		$routes = $tmp_routes['routes'];
-		
 		if (isset($routes[RequestHandler::$currentDomain])) {
 			if (!count($routes[RequestHandler::$currentDomain])) {
 				throw new \Europa\Core\Exceptions\CoreException("Aucune route n'est correctement définie pour le domaine courant dans routes.json");
@@ -44,8 +43,8 @@ class RouteHandler {
 				$attrNames = $attrNames['attr'];
 
 				$routeToRegex = preg_replace('#\${(.+)}#U',"(.+)",$route['scheme']);
-
-				if (preg_match("#^$routeToRegex\$#", RequestHandler::$request)) {
+				
+				if (preg_match("#^".preg_quote($routeToRegex,"#")."\$#", RequestHandler::$request)) {
 					
 					self::$currentRoute = $route;
 					if (count($attrNames)) {
