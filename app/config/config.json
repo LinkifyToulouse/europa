@@ -20,7 +20,7 @@
 			"port": false,
 			"username": "root",
 			"password": "",
-			"database": "emerga",
+			"database": "dbname",
 			"autoLoad": true
 		},
 		"namespaces": {
