@@ -1,7 +1,7 @@
 {
 	"config": {
-		"europaVersion": "2.0.0",
-		"publishDate": "19/08/2021",
+		"europaVersion": "2.1.0",
+		"publishDate": "12/02/2022",
 		"domains": {
 			"main": {
 				"domain": "localhost",
@@ -21,7 +21,7 @@
 			"username": "root",
 			"password": "",
 			"database": "dbname",
-			"autoLoad": true
+			"autoLoad": false
 		},
 		"namespaces": {
 			"\\Europa\\CustomNamespace": "app/core/"
