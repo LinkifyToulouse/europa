@@ -12,11 +12,6 @@
             box-sizing: border-box;
         }
 
-        html {
-            height: 100%;
-            width: 100%;
-        }
-
         body {
             margin: 0;
             padding: 0;
@@ -35,7 +30,7 @@
         }
 
         .root {
-            margin: 20vw;
+            margin: 15vw;
         }
 
         h1 {
@@ -57,10 +52,22 @@
         }
 
         code {
+            font-style: normal;
+        }
+
+        code {
             display: inline-block;
             padding: 2px 5px;
             border-radius: 3px;
             background-color: rgba(20, 20, 20, 0.5);
+        }
+
+        pre {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            filter: invert();
+            width: 100%;
         }
     </style>
 </head>
@@ -71,10 +78,28 @@
         <h1>Bienvenue sur Europa.</h1>
         <p>
             Europa est un framework MVC pour serveurs Apache basé sur PHP.<br /><br />
-            <b>Commencez à développer votre application web dès maintenant</b> en créant une Route dans le fichier <code>app/config/routes.json</code>, puis un Controller dans <code>controller/routeControllers/</code>, et enfin une Vue dans <code>vues/templates/</code>.<br /><br /><br />
+            <b>Commencez à développer votre application web dès maintenant</b> en créant une Route dans le fichier <a href="vscode://file/<?= \realpath("app/config/routes.json") ?>"><code>app/config/routes.json</code></a>, puis un Controller dans <a href="vscode://file/<?= \realpath("controller/routeControllers/AccueilController.php") ?>"><code>controller/routeControllers/</code></a>, et enfin une Vue dans <a href="vscode://file/<?= \realpath("vues/templates/welcome.php") ?>"><code>vues/templates/</code></a>.<br /><br /><br />
 
             Pour toute information, visitez le site <a href="https://linkify.fr" target="_blank">Linkify.fr</a>.
         </p>
+        <?php
+        $debug = array(
+            "environment" => \Europa\Core\Kernel::$ENV,
+            "options" => \Europa\Core\Kernel::$OPTIONS,
+            "database" => \Europa\Core\Kernel::$DATABASE,
+            "request" => array(
+                "requestPath" => \Europa\Core\RequestHandler::$request,
+                "currentDomain" => \Europa\Core\RequestHandler::$currentDomain,
+                "defaultPath" => \Europa\Core\RequestHandler::$defaultPath
+            ),
+            "route" => array(
+                "currentRoute" => \Europa\Core\RouteHandler::$currentRoute,
+                "URLattributes" => \Europa\Core\RouteHandler::$URLattributes
+            ),
+            "debugStatus" => "VALID"
+        );
+        var_dump($debug);
+        ?>
     </div>
 </body>
 
