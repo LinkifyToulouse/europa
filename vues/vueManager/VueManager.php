@@ -16,6 +16,11 @@ class VueManager
                 "TEMPLATE_EXTENSION" => "php"
             );
         }
+
+        if (!isset($fileParameters["TEMPLATE_EXTENSION"])) {
+            $fileParameters["TEMPLATE_EXTENSION"] = "php";
+        }
+
         $this->attributes = $fileParameters;
         unset($this->attributes["TEMPLATE_EXTENSION"]);
 
